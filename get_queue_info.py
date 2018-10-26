@@ -3,7 +3,7 @@ from requests.auth import HTTPBasicAuth
 from bs4 import BeautifulSoup
 
 
-def get_queue_info(ip, port, user, pas):
+def get_queue_info(user, pas, ip, port=8161):
     url = "http://{0}:{1}/admin/queues.jsp".format(ip, port)
     req = requests.get(url, auth=HTTPBasicAuth(user, pas))
     soup = BeautifulSoup(req.text, 'lxml')
